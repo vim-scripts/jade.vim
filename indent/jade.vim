@@ -2,7 +2,7 @@
 " Language: Jade
 " Maintainer: Joshua Borton
 " Credits: Tim Pope (vim-jade)
-" Last Change: 2010 Aug 06
+" Last Change: 2010 Sep 22
 
 if exists("b:did_indent")
   finish
@@ -26,6 +26,9 @@ let s:tag = '\([%.#][[:alnum:]_-]\+\|'.s:attributes.'\)*[<>]*'
 if !exists('g:jade_self_closing_tags')
   let g:jade_self_closing_tags = 'meta|link|img|hr|br'
 endif
+
+setlocal formatoptions+=r
+setlocal comments+=n:\|
 
 function! GetJadeIndent()
   let lnum = prevnonblank(v:lnum-1)
